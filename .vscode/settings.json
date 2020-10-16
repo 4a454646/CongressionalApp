@@ -1,0 +1,11 @@
+﻿{
+    "files.exclude":
+    {
+        "**/.csproj":true,
+        "**/*.meta":true,
+        "**/*.userprefs":true,
+        "**/*.unityproj":true,
+        "**/*.prefab":true,
+        "**/*.unity":true,
+    }
+}
