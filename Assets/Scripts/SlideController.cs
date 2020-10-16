@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// git add * 
+// git commit -a
+// git push origin master
+
 public class SlideController : MonoBehaviour {
     public bool isChecked = false;
     public Sprite backBlack;
