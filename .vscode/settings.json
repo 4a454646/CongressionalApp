@@ -7,5 +7,6 @@
         "**/*.unityproj":true,
         "**/*.prefab":true,
         "**/*.unity":true,
-    }
+    },
+    "git.ignoreLimitWarning": true
 }

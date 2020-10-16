@@ -13,7 +13,7 @@ public class SliderDot : MonoBehaviour {
     public ParticleSystem fireworkParticles;    
     public float lerpValue;
     public bool isChecked;
-    
+    // hello github!
 
     private void Start() {
         parent = transform.parent.transform.position;
