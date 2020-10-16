@@ -29,12 +29,14 @@ public class SlideController : MonoBehaviour {
     public WaitForSeconds waitTimeShort;
     public SliderDot[] sliderDots;
     public GameObject sideBarFill;
+    public SoundManager soundManager;
     
     private void Start() {
         backgroundCube = _backgroundCube.GetComponent<SpriteRenderer>();
         waitTimeLong = new WaitForSeconds(0.4f);
         waitTimeMed = new WaitForSeconds(0.05f);
         waitTimeShort = new WaitForSeconds(0.01f);
+        soundManager = FindObjectOfType<SoundManager>();
         StartCoroutine(particleCoro());
     }
 

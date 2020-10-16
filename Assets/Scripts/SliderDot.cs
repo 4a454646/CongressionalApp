@@ -80,6 +80,7 @@ public class SliderDot : MonoBehaviour {
             sliderParticles.Stop();
             if (!isChecked) { 
                 fireworkParticles.Play(); 
+                slideController.soundManager.PlayClip("ding");
                 slideController.setColor(Color.black);
                 // slideController.setColor(Color.white);
                 yield return slideController.waitTimeMed;
