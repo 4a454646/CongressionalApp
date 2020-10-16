@@ -1,7 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - Slider
+    - SlideController
     - SliderDot
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
@@ -40,9 +40,9 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11498}
-    - Class: 114
       Script: {instanceID: 13124}
+    - Class: 114
+      Script: {instanceID: 13428}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -94,12 +94,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: PlayerQuitHandler
-  - hash:
-      serializedVersion: 2
-      Hash: 9f3a3410541b7164c971d295a80f27aa
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Slider
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -354,7 +348,7 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: 0f3676b00eea367fe7263d90fd285b49
+      Hash: eb3f12f9c2de87a710dd1594477a233e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SliderDot
@@ -414,7 +408,7 @@ ScriptsOnlyBuild:
     className: Physics2DRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 31582186ebece284a729fdc8d85c2208
+      Hash: b6649e236795048a558da221440fe4f9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SlideController
@@ -424,12 +418,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: TimelineAsset
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: tes
   - hash:
       serializedVersion: 2
       Hash: 6939772cb3ce775a8e8d99f332534491

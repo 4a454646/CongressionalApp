@@ -6,6 +6,7 @@ using UnityEngine.UI;
 // git add * 
 // git commit -a
 // git push origin master
+// maybe github desktop will work
 
 public class SlideController : MonoBehaviour {
     public bool isChecked = false;
@@ -20,16 +21,20 @@ public class SlideController : MonoBehaviour {
     public Color gray;
     public Color green;
     public float outerBound = 0.5f;
-    public SpriteRenderer backgroundCube;
+    public GameObject _backgroundCube;
+    private SpriteRenderer backgroundCube;
     public bool sendParticle = false;
-    private WaitForSeconds waitTimeLong;
-    private WaitForSeconds waitTimeShort;
+    public WaitForSeconds waitTimeLong;
+    public WaitForSeconds waitTimeMed;
+    public WaitForSeconds waitTimeShort;
     public SliderDot[] sliderDots;
     public GameObject sideBarFill;
     
     private void Start() {
+        backgroundCube = _backgroundCube.GetComponent<SpriteRenderer>();
         waitTimeLong = new WaitForSeconds(0.4f);
-        waitTimeShort = new WaitForSeconds(0.025f);
+        waitTimeMed = new WaitForSeconds(0.05f);
+        waitTimeShort = new WaitForSeconds(0.01f);
         StartCoroutine(particleCoro());
     }
 
@@ -40,13 +45,21 @@ public class SlideController : MonoBehaviour {
         }
     }
 
-    public IEnumerator scaleSideBar() {
+    public void scaleSideBar(float lerpValue, bool addOne) {
+        float oldScale = sideBarFill.transform.localScale.y;
+        float newScale = addOne ? 
+            ((countChecked() + 1 - lerpValue) / 6.0f) * 29.65f : 
+            ((countChecked() - lerpValue) / 6.0f) * 29.65f ;
+        sideBarFill.transform.localScale = new Vector3(
+            0.95f, sideBarFill.transform.localScale.y + (newScale - oldScale), 1);
+    }
+    
+    public IEnumerator setSideBarCoro() {
         float oldScale = sideBarFill.transform.localScale.y;
         float newScale = (countChecked() / 6.0f) * 29.65f;
-        for (int i = 1; i < 11; i++) {
-            sideBarFill.transform.localScale = new Vector3(1, 
-            sideBarFill.transform.localScale.y + (newScale - oldScale) / 10
-            ,1);
+        for (int i = 0; i < 10; i++) {
+            sideBarFill.transform.localScale = new Vector3(
+                0.95f, sideBarFill.transform.localScale.y + (newScale - oldScale) / 10, 1);
             yield return waitTimeShort;
         }
     }
@@ -60,6 +73,11 @@ public class SlideController : MonoBehaviour {
         for (int i = 0; i < sliderDots.Length; i++) {
             if (sliderDots[i].isChecked) { counter++; }
         }
-        return counter;
+        return counter; 
+        // probably a way to do this with a list comprehension, but no need
+    }
+
+    public void setColor(Color _color) {
+        backgroundCube.color = _color;
     }
 }

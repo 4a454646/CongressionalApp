@@ -23,10 +23,6 @@ public class SliderDot : MonoBehaviour {
 
     private void Update() {
         sliderBar.transform.localScale = new Vector2(2 - (slideController.outerBound - transform.localPosition.x) * 2, 1);
-        lerpValue = Mathf.Sqrt(slideController.outerBound - transform.position.x);
-        if (!isChecked) {
-            slideController.backgroundCube.color = Color.Lerp(slideController.green, slideController.gray, lerpValue);
-        }
     }
 
     private void OnMouseEnter() { 
@@ -47,6 +43,14 @@ public class SliderDot : MonoBehaviour {
             sliderParticles.Emit(1);
             slideController.sendParticle = false; 
         }
+        lerpValue = Mathf.Sqrt(slideController.outerBound - transform.localPosition.x);
+        if (!isChecked) {
+            slideController.setColor(Color.Lerp(slideController.green, slideController.gray, lerpValue));
+            slideController.scaleSideBar(lerpValue, true);
+        }
+        else {
+            slideController.scaleSideBar(lerpValue, false);
+        }
     }
 
     private void OnMouseDown() { 
@@ -58,24 +62,30 @@ public class SliderDot : MonoBehaviour {
     private void OnMouseUp() {
         if (transform.localPosition.x <= 0) {
             transform.localPosition = new Vector3(-slideController.outerBound, 0, -2f); 
-            SetSliderStatus(false);
+            StartCoroutine(SetSliderStatusCoro(false));
         }
         else { 
             transform.localPosition = new Vector3(slideController.outerBound, 0, -2f); 
-            SetSliderStatus(true);
+            StartCoroutine(SetSliderStatusCoro(true));
         }
         if (isChecked) { spriteRenderer.sprite = slideController.dotBlack; }
         else { spriteRenderer.sprite = slideController.dotRegular; }
     }
     
-    private void SetSliderStatus(bool status) {
+    private IEnumerator SetSliderStatusCoro(bool status) {
         if (status) {
             transform.parent.GetComponent<SpriteRenderer>().sprite = slideController.backBlack;
             sliderBar.GetComponent<SpriteRenderer>().sprite = slideController.slideBlack;
             spriteRenderer.sprite = slideController.dotBlack;
             sliderParticles.Stop();
-            if (!isChecked) { fireworkParticles.Play(); }
-            slideController.backgroundCube.color = slideController.gray;
+            if (!isChecked) { 
+                fireworkParticles.Play(); 
+                slideController.setColor(Color.black);
+                // slideController.setColor(Color.white);
+                yield return slideController.waitTimeMed;
+                slideController.setColor(slideController.green);
+                yield return slideController.waitTimeMed;
+            }
         }
         else {
             transform.parent.GetComponent<SpriteRenderer>().sprite = slideController.backRegular;
@@ -83,7 +93,8 @@ public class SliderDot : MonoBehaviour {
             spriteRenderer.sprite = slideController.dotRegular;
             sliderParticles.Play();
         }
+        slideController.setColor(slideController.gray);
         isChecked = status;
-        StartCoroutine(slideController.scaleSideBar());
+        StartCoroutine(slideController.setSideBarCoro());
     }
 }
