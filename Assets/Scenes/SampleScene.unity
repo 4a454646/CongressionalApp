@@ -57004,10 +57004,10 @@ MonoBehaviour:
   - {fileID: 1077030964}
   - {fileID: 702131090}
   sideBarFill: {fileID: 1959619208}
-  sideBarParticles: {fileID: 0}
   soundManager: {fileID: 9081904}
   audioSource: {fileID: 0}
   fireworkCreator: {fileID: 673266897}
+  allowChanges: 1
 --- !u!1 &1633188560
 GameObject:
   m_ObjectHideFlags: 0
