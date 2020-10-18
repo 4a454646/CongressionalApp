@@ -20585,6 +20585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefString: Task2
+  textField: {fileID: 660815458}
 --- !u!114 &660815461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25881,6 +25882,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefString: Task4
+  textField: {fileID: 780942827}
 --- !u!114 &780942830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26486,6 +26488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefString: Task1
+  textField: {fileID: 940533287}
 --- !u!1 &952859846
 GameObject:
   m_ObjectHideFlags: 0
@@ -26539,6 +26542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefString: Task3
+  textField: {fileID: 952859846}
 --- !u!114 &952859849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41804,6 +41808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefString: Task6
+  textField: {fileID: 1246446052}
 --- !u!114 &1246446055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57127,6 +57132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefString: Task5
+  textField: {fileID: 1535079345}
 --- !u!114 &1535079348
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - SaveSystem
     - SlideController
     - SliderDot
     - SoundManager
@@ -94,6 +95,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 14038}
     - Class: 114
       Script: {instanceID: 14374}
+    - Class: 114
+      Script: {instanceID: 74136}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -615,6 +618,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 0cb8020013864453a0729e7c3c8a7e91
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SaveSystem
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
