@@ -45,6 +45,7 @@ public class SliderDot : MonoBehaviour {
                 slideController.sendParticle = false; 
             }
             lerpValue = Mathf.Sqrt(slideController.outerBound - transform.localPosition.x);
+            if (double.IsNaN(lerpValue)) { lerpValue = 0; } // needed to fix a weird bug
             if (!isChecked) {
                 slideController.setColor(Color.Lerp(slideController.green, slideController.gray, lerpValue));
                 slideController.scaleSideBar(lerpValue, true);
@@ -60,7 +61,7 @@ public class SliderDot : MonoBehaviour {
         else { spriteRenderer.sprite = slideController.dotHovered; }
         storedX = transform.position.x - Camera.main.ScreenToWorldPoint(Input.mousePosition).x; 
     }
-
+    
     private void OnMouseUp() {
         if (transform.localPosition.x <= 0) {
             transform.localPosition = new Vector3(-slideController.outerBound, 0, -2f); 
@@ -70,8 +71,6 @@ public class SliderDot : MonoBehaviour {
             transform.localPosition = new Vector3(slideController.outerBound, 0, -2f); 
             StartCoroutine(SetSliderStatusCoro(true));
         }
-        if (isChecked) { spriteRenderer.sprite = slideController.dotBlack; }
-        else { spriteRenderer.sprite = slideController.dotRegular; }
     }
     
     private IEnumerator SetSliderStatusCoro(bool status) {
@@ -102,6 +101,16 @@ public class SliderDot : MonoBehaviour {
         slideController.setColor(slideController.gray);
         isChecked = status;
         StartCoroutine(slideController.setSideBarCoro());
+        if (isChecked) { spriteRenderer.sprite = slideController.dotBlack; }
+        else { spriteRenderer.sprite = slideController.dotRegular; }
+    }
 
+    public void resetPosition() {
+        transform.localPosition = new Vector3(-slideController.outerBound, 0, -2f); 
+        transform.parent.GetComponent<SpriteRenderer>().sprite = slideController.backRegular;
+        sliderBar.GetComponent<SpriteRenderer>().sprite = slideController.slideRegular;
+        spriteRenderer.sprite = slideController.dotRegular;
+        sliderParticles.Play();
+        isChecked = false;
     }
 }

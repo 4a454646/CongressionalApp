@@ -28,6 +28,7 @@ ScriptsOnlyBuild:
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
@@ -73,6 +74,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 12294}
     - Class: 114
       Script: {instanceID: 12346}
+    - Class: 114
+      Script: {instanceID: 12996}
     - Class: 114
       Script: {instanceID: 13146}
     - Class: 114
@@ -464,7 +467,7 @@ ScriptsOnlyBuild:
     className: Physics2DRaycaster
   - hash:
       serializedVersion: 2
-      Hash: c1ed466640334afe68499aeee8997a62
+      Hash: 7a20dbe35493e2afd707a7f780dc38e7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SlideController

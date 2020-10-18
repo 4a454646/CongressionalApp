@@ -35,6 +35,7 @@ public class SlideController : MonoBehaviour {
     public GameObject fireworkCreator;
     private System.Random random;
     public bool allowChanges = true;
+    public bool wantsToReset = false;
     
     private void Start() {
         backgroundCube = _backgroundCube.GetComponent<SpriteRenderer>();
@@ -59,8 +60,10 @@ public class SlideController : MonoBehaviour {
         float newScale = addOne ? 
             ((countChecked() + 1 - lerpValue) / 6.0f) * 29.65f : 
             ((countChecked() - lerpValue) / 6.0f) * 29.65f ;
-        sideBarFill.transform.localScale = new Vector3(
-            0.95f, sideBarFill.transform.localScale.y + (newScale - oldScale), 1);
+        if (!Double.IsNaN(newScale)) {
+            sideBarFill.transform.localScale = new Vector3(
+                0.95f, sideBarFill.transform.localScale.y + (newScale - oldScale), 1);
+        }
     }
     
     public IEnumerator setSideBarCoro() {
@@ -106,24 +109,57 @@ public class SlideController : MonoBehaviour {
                 );
                 yield return waitTimeShort;
             }
-            fireworkCreator.transform.position = new Vector2(
-                random.Next(0, Screen.width / 200),
-                random.Next(0, Screen.height / 200)
-            );
-            fireworkCreator.GetComponent<ParticleSystem>().Play();
+            // fireworkCreator.transform.position = new Vector2(
+            //     random.Next(0, Screen.width / 200),
+            //     random.Next(0, Screen.height / 200)
+            // );
+            // fireworkCreator.GetComponent<ParticleSystem>().Play();
             yield return waitTimeShort;
         }
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 10; i++) {
             fireworkCreator.transform.position = new Vector2(
                 random.Next(0, Screen.width / 200),
                 random.Next(0, Screen.height / 200)
             );
             fireworkCreator.GetComponent<ParticleSystem>().Play();
+            yield return waitTimeMed;
+            yield return waitTimeMed;
             yield return waitTimeMed;
             yield return waitTimeMed;
         }
         yield return waitTimeLong;
+        yield return waitTimeLong;
+        yield return waitTimeLong;
+        yield return waitTimeLong;
         audioSource.pitch = 3;
         allowChanges = true;
+    }
+
+    public void resetSliders() {
+        if (allowChanges) {
+            StartCoroutine(resetSlidersCoro());
+        }
+    }
+
+    public IEnumerator resetSlidersCoro() {
+        if (wantsToReset) {
+            allowChanges = false;
+            for (int i = 0; i < 6; i++) {
+                sliderDots[i].resetPosition();
+                yield return waitTimeMed;
+            }
+            audioSource.pitch = 1;
+            StartCoroutine(setSideBarCoro());
+            soundManager.PlayClip("reset");
+            yield return waitTimeLong;
+            yield return waitTimeLong;
+            yield return waitTimeLong;
+            yield return waitTimeLong;
+            audioSource.pitch = 3;
+            allowChanges = true;
+        }
+        else { wantsToReset = true; }
+        yield return waitTimeLong;
+        wantsToReset = false;
     }
 }
