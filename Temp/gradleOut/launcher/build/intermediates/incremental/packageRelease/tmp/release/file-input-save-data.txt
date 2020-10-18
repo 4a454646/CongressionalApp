@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Fri Oct 16 10:07:39 PDT 2020
+#Sat Oct 17 21:38:45 PDT 2020
 60.set=ASSET
 52.set=ASSET
 53.base=/home/jeff/Desktop/Test1/Temp/gradleOut/launcher/build/intermediates/merged_assets/release/out
@@ -16,7 +16,7 @@
 3.path=bin/Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll
 47.path=bin/Data/Managed/UnityEngine.Physics2DModule.dll
 60.base=/home/jeff/Desktop/Test1/Temp/gradleOut/launcher/build/intermediates/merged_assets/release/out
-94.path=bin/Data/Managed/UnityEngine.dll
+94.path=bin/Data/Managed/UnityEngine.TextRenderingModule.dll
 100.set=ASSET
 72.baseType=DIRECTORY
 62.base=/home/jeff/Desktop/Test1/Temp/gradleOut/launcher/build/intermediates/merged_assets/release/out
@@ -31,7 +31,7 @@
 51.set=ASSET
 65.baseType=DIRECTORY
 25.baseType=DIRECTORY
-100.path=bin/Data/Managed/UnityEngine.DirectorModule.dll
+100.path=bin/Data/Managed/System.Xml.dll
 43.set=ASSET
 35.set=ASSET
 27.set=ASSET
@@ -76,7 +76,7 @@
 12.base=/home/jeff/Desktop/Test1/Temp/gradleOut/launcher/build/intermediates/merged_assets/release/out
 2.path=bin/Data/Managed/System.Diagnostics.StackTrace.dll
 46.path=bin/Data/Managed/System.Globalization.Extensions.dll
-93.path=bin/Data/Managed/UnityEngine.TextRenderingModule.dll
+93.path=bin/Data/Managed/UnityEngine.ARModule.dll
 9.path=bin/Data/Managed/UnityEngine.TLSModule.dll
 74.baseType=DIRECTORY
 53.path=bin/Data/Managed/netstandard.dll
@@ -135,11 +135,11 @@
 11.base=/home/jeff/Desktop/Test1/Temp/gradleOut/launcher/build/intermediates/merged_assets/release/out
 1.path=bin/Data/Managed/UnityEngine.UnityWebRequestModule.dll
 45.path=bin/Data/Managed/System.dll
-92.path=bin/Data/Managed/UnityEngine.ARModule.dll
+92.path=bin/Data/sharedassets0.resource
 76.baseType=DIRECTORY
 8.path=bin/Data/Managed/Assembly-CSharp.dll
 36.baseType=DIRECTORY
-99.path=bin/Data/Managed/System.Xml.dll
+99.path=bin/Data/Managed/UnityEngine.AccessibilityModule.dll
 5.set=ASSET
 52.path=bin/Data/Managed/UnityEngine.InputLegacyModule.dll
 67.base=/home/jeff/Desktop/Test1/Temp/gradleOut/launcher/build/intermediates/merged_assets/release/out
@@ -152,6 +152,7 @@
 27.base=/home/jeff/Desktop/Test1/Temp/gradleOut/launcher/build/intermediates/merged_assets/release/out
 74.base=/home/jeff/Desktop/Test1/Temp/gradleOut/launcher/build/intermediates/merged_assets/release/out
 31.set=ASSET
+101.baseType=DIRECTORY
 23.set=ASSET
 99.baseType=DIRECTORY
 15.set=ASSET
@@ -199,7 +200,7 @@
 91.path=bin/Data/Managed/System.Transactions.dll
 41.baseType=DIRECTORY
 7.path=bin/Data/Managed/Unity.InternalAPIEngineBridge.001.dll
-98.path=bin/Data/Managed/UnityEngine.AccessibilityModule.dll
+98.path=bin/Data/Managed/UnityEngine.PhysicsModule.dll
 3.set=ASSET
 19.base=/home/jeff/Desktop/Test1/Temp/gradleOut/launcher/build/intermediates/merged_assets/release/out
 51.path=bin/Data/Managed/UnityEngine.XRModule.dll
@@ -255,13 +256,13 @@
 16.base=/home/jeff/Desktop/Test1/Temp/gradleOut/launcher/build/intermediates/merged_assets/release/out
 90.path=bin/Data/Managed/Unity.2D.PixelPerfect.dll
 6.path=bin/Data/boot.config
-97.path=bin/Data/Managed/UnityEngine.PhysicsModule.dll
+97.path=bin/Data/Managed/UnityEngine.TerrainModule.dll
 1.set=ASSET
 73.baseType=DIRECTORY
 18.base=/home/jeff/Desktop/Test1/Temp/gradleOut/launcher/build/intermediates/merged_assets/release/out
 50.path=bin/Data/Managed/UnityEngine.UmbraModule.dll
 65.base=/home/jeff/Desktop/Test1/Temp/gradleOut/launcher/build/intermediates/merged_assets/release/out
-count=101
+count=102
 57.path=bin/Data/Managed/UnityEngine.WindModule.dll
 10.path=bin/Data/Managed/UnityEngine.ClothModule.dll
 25.base=/home/jeff/Desktop/Test1/Temp/gradleOut/launcher/build/intermediates/merged_assets/release/out
@@ -312,9 +313,10 @@ count=101
 15.base=/home/jeff/Desktop/Test1/Temp/gradleOut/launcher/build/intermediates/merged_assets/release/out
 5.path=bin/Data/Managed/UnityEngine.UIElementsModule.dll
 49.path=bin/Data/Managed/UnityEngine.SpriteShapeModule.dll
-96.path=bin/Data/Managed/UnityEngine.TerrainModule.dll
+96.path=bin/Data/Managed/UnityEngine.TerrainPhysicsModule.dll
 75.baseType=DIRECTORY
 35.baseType=DIRECTORY
+101.base=/home/jeff/Desktop/Test1/Temp/gradleOut/launcher/build/intermediates/merged_assets/release/out
 17.base=/home/jeff/Desktop/Test1/Temp/gradleOut/launcher/build/intermediates/merged_assets/release/out
 64.base=/home/jeff/Desktop/Test1/Temp/gradleOut/launcher/build/intermediates/merged_assets/release/out
 56.path=bin/Data/Managed/System.Net.Http.dll
@@ -367,7 +369,7 @@ count=101
 37.baseType=DIRECTORY
 48.path=bin/Data/Managed/UnityEngine.UIModule.dll
 61.base=/home/jeff/Desktop/Test1/Temp/gradleOut/launcher/build/intermediates/merged_assets/release/out
-95.path=bin/Data/Managed/UnityEngine.TerrainPhysicsModule.dll
+95.path=bin/Data/Managed/UnityEngine.dll
 80.baseType=DIRECTORY
 40.baseType=DIRECTORY
 100.base=/home/jeff/Desktop/Test1/Temp/gradleOut/launcher/build/intermediates/merged_assets/release/out
@@ -379,6 +381,7 @@ count=101
 70.base=/home/jeff/Desktop/Test1/Temp/gradleOut/launcher/build/intermediates/merged_assets/release/out
 77.base=/home/jeff/Desktop/Test1/Temp/gradleOut/launcher/build/intermediates/merged_assets/release/out
 61.set=ASSET
+101.path=bin/Data/Managed/UnityEngine.DirectorModule.dll
 53.set=ASSET
 63.baseType=DIRECTORY
 45.set=ASSET
@@ -393,6 +396,7 @@ count=101
 99.set=ASSET
 5.baseType=DIRECTORY
 24.path=bin/Data/Managed/UnityEngine.GameCenterModule.dll
+101.set=ASSET
 71.path=bin/Data/Managed/System.EnterpriseServices.dll
 56.baseType=DIRECTORY
 16.baseType=DIRECTORY

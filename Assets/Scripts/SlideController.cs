@@ -29,6 +29,7 @@ public class SlideController : MonoBehaviour {
     public WaitForSeconds waitTimeShort;
     public SliderDot[] sliderDots;
     public GameObject sideBarFill;
+    public GameObject sideBarParticles;
     public SoundManager soundManager;
     
     private void Start() {
