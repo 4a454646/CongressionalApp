@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 // git add * 
 // git commit -a
@@ -29,8 +30,11 @@ public class SlideController : MonoBehaviour {
     public WaitForSeconds waitTimeShort;
     public SliderDot[] sliderDots;
     public GameObject sideBarFill;
-    public GameObject sideBarParticles;
     public SoundManager soundManager;
+    public AudioSource audioSource;
+    public GameObject fireworkCreator;
+    private System.Random random;
+    public bool allowChanges = true;
     
     private void Start() {
         backgroundCube = _backgroundCube.GetComponent<SpriteRenderer>();
@@ -38,6 +42,8 @@ public class SlideController : MonoBehaviour {
         waitTimeMed = new WaitForSeconds(0.05f);
         waitTimeShort = new WaitForSeconds(0.01f);
         soundManager = FindObjectOfType<SoundManager>();
+        audioSource = soundManager.GetComponent<AudioSource>();
+        random = new System.Random();
         StartCoroutine(particleCoro());
     }
 
@@ -67,10 +73,6 @@ public class SlideController : MonoBehaviour {
         }
     }
 
-    private void Update() {
-        
-    }
-
     public int countChecked() {
         int counter = 0;
         for (int i = 0; i < sliderDots.Length; i++) {
@@ -82,5 +84,46 @@ public class SlideController : MonoBehaviour {
 
     public void setColor(Color _color) {
         backgroundCube.color = _color;
+    }
+
+    public IEnumerator victoryCoro() {
+        allowChanges = false;
+        yield return waitTimeLong;
+        audioSource.pitch = 1;
+        soundManager.PlayClip("final");
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 5; j++) {
+                sliderDots[i].transform.parent.transform.localScale = new Vector2(
+                    sliderDots[i].transform.parent.transform.localScale.x + 0.05f,
+                    sliderDots[i].transform.parent.transform.localScale.y + 0.05f
+                );
+                yield return waitTimeShort;
+            }
+            for (int j = 0; j < 5; j++) {
+                sliderDots[i].transform.parent.transform.localScale = new Vector2(
+                    sliderDots[i].transform.parent.transform.localScale.x - 0.05f,
+                    sliderDots[i].transform.parent.transform.localScale.y - 0.05f
+                );
+                yield return waitTimeShort;
+            }
+            fireworkCreator.transform.position = new Vector2(
+                random.Next(0, Screen.width / 200),
+                random.Next(0, Screen.height / 200)
+            );
+            fireworkCreator.GetComponent<ParticleSystem>().Play();
+            yield return waitTimeShort;
+        }
+        for (int i = 0; i < 6; i++) {
+            fireworkCreator.transform.position = new Vector2(
+                random.Next(0, Screen.width / 200),
+                random.Next(0, Screen.height / 200)
+            );
+            fireworkCreator.GetComponent<ParticleSystem>().Play();
+            yield return waitTimeMed;
+            yield return waitTimeMed;
+        }
+        yield return waitTimeLong;
+        audioSource.pitch = 3;
+        allowChanges = true;
     }
 }
