@@ -15,6 +15,8 @@ ScriptsOnlyBuild:
     - UnityEditor.Tilemaps.TileDragAndDropManager
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
+    Unity.TextMeshPro.Editor.dll:
+    - TMPro.EditorUtilities.TMPro_FontAssetCreatorWindow
     Unity.TextMeshPro.dll:
     - TMPro.TMP_FontAsset
     - TMPro.TMP_InputField
@@ -62,41 +64,41 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11288}
+      Script: {instanceID: 11292}
     - Class: 114
-      Script: {instanceID: 11632}
+      Script: {instanceID: 11634}
     - Class: 114
       Script: {instanceID: 11682}
     - Class: 114
-      Script: {instanceID: 11824}
+      Script: {instanceID: 11820}
     - Class: 114
-      Script: {instanceID: 11962}
+      Script: {instanceID: 11958}
     - Class: 114
-      Script: {instanceID: 12294}
+      Script: {instanceID: 12288}
     - Class: 114
-      Script: {instanceID: 12346}
+      Script: {instanceID: 12340}
     - Class: 114
-      Script: {instanceID: 12996}
+      Script: {instanceID: 12986}
     - Class: 114
-      Script: {instanceID: 13146}
+      Script: {instanceID: 13134}
     - Class: 114
-      Script: {instanceID: 13344}
+      Script: {instanceID: 13332}
     - Class: 114
-      Script: {instanceID: 13362}
+      Script: {instanceID: 13350}
     - Class: 114
-      Script: {instanceID: 13450}
+      Script: {instanceID: 13434}
     - Class: 114
-      Script: {instanceID: 13524}
+      Script: {instanceID: 13468}
     - Class: 114
-      Script: {instanceID: 13662}
+      Script: {instanceID: 13510}
     - Class: 114
-      Script: {instanceID: 13764}
+      Script: {instanceID: 13642}
     - Class: 114
-      Script: {instanceID: 14038}
+      Script: {instanceID: 13742}
     - Class: 114
-      Script: {instanceID: 14374}
+      Script: {instanceID: 14016}
     - Class: 114
-      Script: {instanceID: 74136}
+      Script: {instanceID: 14344}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -482,6 +484,12 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
+      Hash: bf537d1520d126720322ca8709ba0988
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SaveSystem
+  - hash:
+      serializedVersion: 2
       Hash: 52721f8499e11cc48fe09014d8370900
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -618,12 +626,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 0cb8020013864453a0729e7c3c8a7e91
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SaveSystem
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

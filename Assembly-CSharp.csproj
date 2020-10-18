@@ -616,9 +616,6 @@
     <Reference Include="PsdPlugin">
         <HintPath>/home/jeff/Desktop/Test1/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.CollabProxy.Editor">
-        <HintPath>/home/jeff/Desktop/Test1/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Rider.Editor">
         <HintPath>/home/jeff/Desktop/Test1/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>

@@ -46,12 +46,21 @@ public class SlideController : MonoBehaviour {
         audioSource = soundManager.GetComponent<AudioSource>();
         random = new System.Random();
         StartCoroutine(particleCoro());
+        StartCoroutine(setSlidersToSave());
     }
 
     private IEnumerator particleCoro() {
         while (true) { 
             yield return waitTimeLong;
             sendParticle = !sendParticle;
+        }
+    }
+
+    private IEnumerator setSlidersToSave() {
+        yield return waitTimeLong;
+        for (int i = 0; i < sliderDots.Length; i++) {
+            sliderDots[i].initializeSlider();
+            yield return waitTimeMed;
         }
     }
 
@@ -76,17 +85,22 @@ public class SlideController : MonoBehaviour {
         }
     }
 
+    public void setSideBarOnStart() {
+        sideBarFill.transform.localScale = new Vector3(0.95f, (countChecked() / 6.0f) * 29.65f, 1);
+    }
+
     public int countChecked() {
         int counter = 0;
         for (int i = 0; i < sliderDots.Length; i++) {
             if (sliderDots[i].isChecked) { counter++; }
         }
-        return counter; 
-        // probably a way to do this with a list comprehension, but no need
+        return counter;
     }
 
     public void setColor(Color _color) {
-        backgroundCube.color = _color;
+        if (backgroundCube != null) {
+            backgroundCube.color = _color;
+        }
     }
 
     public IEnumerator victoryCoro() {
@@ -94,7 +108,7 @@ public class SlideController : MonoBehaviour {
         yield return waitTimeLong;
         audioSource.pitch = 1;
         soundManager.PlayClip("final");
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < sliderDots.Length; i++) {
             for (int j = 0; j < 5; j++) {
                 sliderDots[i].transform.parent.transform.localScale = new Vector2(
                     sliderDots[i].transform.parent.transform.localScale.x + 0.05f,
@@ -144,7 +158,7 @@ public class SlideController : MonoBehaviour {
     public IEnumerator resetSlidersCoro() {
         if (wantsToReset) {
             allowChanges = false;
-            for (int i = 0; i < 6; i++) {
+            for (int i = 0; i < sliderDots.Length; i++) {
                 sliderDots[i].resetPosition();
                 yield return waitTimeMed;
             }

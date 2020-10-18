@@ -18,7 +18,18 @@ public class SliderDot : MonoBehaviour {
     private void Start() {
         parent = transform.parent.transform.position;
         spriteRenderer = GetComponent<SpriteRenderer>();
-        sliderParticles.Play();
+    }
+
+    public void initializeSlider() {
+        if (PlayerPrefs.GetInt(name + "Slider") == 1) {
+            transform.localPosition = new Vector3(slideController.outerBound, 0, -2f); 
+            StartCoroutine(SetSliderStatusCoro(true, false));
+        }
+        else {
+            transform.localPosition = new Vector3(-slideController.outerBound, 0, -2f); 
+            StartCoroutine(SetSliderStatusCoro(false, false));
+        }
+        slideController.setSideBarOnStart();
     }
 
     private void Update() {
@@ -65,21 +76,21 @@ public class SliderDot : MonoBehaviour {
     private void OnMouseUp() {
         if (transform.localPosition.x <= 0) {
             transform.localPosition = new Vector3(-slideController.outerBound, 0, -2f); 
-            StartCoroutine(SetSliderStatusCoro(false));
+            StartCoroutine(SetSliderStatusCoro(false, true));
         }
         else { 
             transform.localPosition = new Vector3(slideController.outerBound, 0, -2f); 
-            StartCoroutine(SetSliderStatusCoro(true));
+            StartCoroutine(SetSliderStatusCoro(true, true));
         }
     }
     
-    private IEnumerator SetSliderStatusCoro(bool status) {
+    private IEnumerator SetSliderStatusCoro(bool status, bool playAnim) {
         if (status) {
             transform.parent.GetComponent<SpriteRenderer>().sprite = slideController.backBlack;
             sliderBar.GetComponent<SpriteRenderer>().sprite = slideController.slideBlack;
             spriteRenderer.sprite = slideController.dotBlack;
             sliderParticles.Stop();
-            if (!isChecked) { 
+            if (!isChecked && playAnim) { 
                 fireworkParticles.Play(); 
                 slideController.soundManager.PlayClip("ding");
                 slideController.setColor(Color.black);
@@ -88,19 +99,21 @@ public class SliderDot : MonoBehaviour {
                 slideController.setColor(slideController.green);
                 yield return slideController.waitTimeMed;
             }
-            if (slideController.countChecked() == 5) {
+            if (slideController.countChecked() == slideController.sliderDots.Length - 1 && playAnim) {
                 StartCoroutine(slideController.victoryCoro());
             }   
+            PlayerPrefs.SetInt(name + "Slider", 1);
         }
         else {
             transform.parent.GetComponent<SpriteRenderer>().sprite = slideController.backRegular;
             sliderBar.GetComponent<SpriteRenderer>().sprite = slideController.slideRegular;
             spriteRenderer.sprite = slideController.dotRegular;
             sliderParticles.Play();
+            PlayerPrefs.SetInt(name + "Slider", 0);
         }
         slideController.setColor(slideController.gray);
         isChecked = status;
-        StartCoroutine(slideController.setSideBarCoro());
+        if (playAnim) { StartCoroutine(slideController.setSideBarCoro()); }
         if (isChecked) { spriteRenderer.sprite = slideController.dotBlack; }
         else { spriteRenderer.sprite = slideController.dotRegular; }
     }
@@ -112,5 +125,6 @@ public class SliderDot : MonoBehaviour {
         spriteRenderer.sprite = slideController.dotRegular;
         sliderParticles.Play();
         isChecked = false;
+        PlayerPrefs.SetInt(name + "Slider", 0);
     }
 }
